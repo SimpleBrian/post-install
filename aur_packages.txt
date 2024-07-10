@@ -1,6 +1,7 @@
 gdm-settings
 gearlever
 libre-menu-editor
+onlyoffice-bin
 opentabletdriver
 p7zip-gui
 prismlauncher

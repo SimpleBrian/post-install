@@ -6,6 +6,7 @@ cups
 dhcpcd
 firefox
 flatpak
+font-manager
 fuse2
 fuse3
 gedit
@@ -17,7 +18,6 @@ intel-ucode
 nano
 neofetch
 networkmanager
-noto-fonts
 nss-mdns
 pipewire
 powerline-fonts
