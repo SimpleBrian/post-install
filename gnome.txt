@@ -15,3 +15,4 @@ sushi
 tracker3-miners
 xdg-desktop-portal-gnome
 xdg-user-dirs-gtk
+gnome-tweaks
