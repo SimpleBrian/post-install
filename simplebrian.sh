@@ -34,13 +34,13 @@ cd paru
 makepkg -si --noconfirm
 cd
 
-# download package list and use paru and flatpak to install everything (using paru as pacman wrapper on top of AUR packages).
-wget https://github.com/SimpleBrian/post-install/raw/main/packages.txt
-wget https://github.com/SimpleBrian/post-install/raw/main/aur_packages.txt
-wget https://github.com/SimpleBrian/post-install/raw/main/flatpaks.txt
+# download package list and use paru to install everything (using paru as pacman wrapper on top of AUR packages).
+wget https://github.com/SimpleBrian/post-install/raw/wayland/packages.txt
+wget https://github.com/SimpleBrian/post-install/raw/wayland/gnome.txt
+wget https://github.com/SimpleBrian/post-install/raw/wayland/aur_packages.txt
 paru -Syu --needed --sudoloop --noconfirm - < packages.txt
+paru -Syu --needed --sudoloop --noconfirm - < gnome.txt
 paru -Syu --needed --sudoloop --noconfirm - < aur_packages.txt
-sudo flatpak install -y $(< flatpaks.txt)
 
 # make terminal hella fancy (and configure colors). must fix vte config later.
 git clone --recursive https://github.com/andresgongora/synth-shell.git
@@ -51,17 +51,6 @@ cd
 sed -i 's/^background_user=.*/background_user="27"/' .config/synth-shell/synth-shell-prompt.config
 sed -i 's/^background_host=.*/background_host="18"/' .config/synth-shell/synth-shell-prompt.config
 
-# download and install WelcomeXP theme.
-git clone https://github.com/mshernandez5/WelcomeXP.git
-mkdir WelcomeXP/fonts
-cd WelcomeXP/fonts
-wget "https://github.com/SimpleBrian/post-install/raw/main/fonts/FRADMIT.TTF"
-wget "https://github.com/SimpleBrian/post-install/raw/main/fonts/tahoma.ttf"
-wget "https://github.com/SimpleBrian/post-install/raw/main/fonts/tahomabd.ttf"
-cd
-sudo cp -R WelcomeXP /usr/share/web-greeter/themes
-sudo chmod -R 755 /usr/share/web-greeter/themes/WelcomeXP
-
 # download and install the tela icon theme.
 git clone https://github.com/vinceliuice/Tela-icon-theme.git
 cd Tela-icon-theme
@@ -71,7 +60,10 @@ cd
 # download and install the qogir theme.
 git clone https://github.com/vinceliuice/Qogir-theme.git
 cd Qogir-theme
-sudo ./install.sh --tweaks round -c dark
+./install.sh --tweaks round -c dark -i arch -l
+
+# install qogir gdm theme.
+sudo ./install.sh -g -c dark
 cd
 
 # download and install posy's cursor.
@@ -80,8 +72,8 @@ cd posy-improved-cursor-linux
 sudo cp -R Posy_Cursor /usr/share/icons
 cd
 
-# enables the lightdm service.
-sudo systemctl enable lightdm
+# enables the gdm service.
+sudo systemctl enable gdm
 
 # enables the network manager.
 sudo systemctl enable NetworkManager
@@ -100,17 +92,12 @@ sudo sed -i 's/^hosts:.*/hosts: mymachines mdns_minimal [NOTFOUND=return] resolv
 sudo ufw allow 5353
 sudo sed -i 's/^noipv4ll/#noipv4ll/' /etc/dhcpcd.conf
 
-# point lightdm to use budgie desktop, web-greeter, and theme web-greeter with WelcomeXP.
-sudo sed -i 's/^#greeter-session=.*/greeter-session=web-greeter/' /etc/lightdm/lightdm.conf
-sudo sed -i 's/^#user-session=.*/user-session=budgie-desktop/' /etc/lightdm/lightdm.conf
-sudo sed -i 's/^    theme:.*/    theme: WelcomeXP/' /etc/lightdm/web-greeter.yml
-
 # run the discord patch command, then uninstall.
 discord-canary-update-skip
 paru -R --noconfirm discord-canary-update-skip-git
 
 # delete git repos and package lists after everything has been installed.
-sudo rm -r paru WelcomeXP Tela-icon-theme Qogir-theme posy-improved-cursor-linux synth-shell packages.txt aur_packages.txt flatpaks.txt
+sudo rm -r paru WelcomeXP Tela-icon-theme Qogir-theme posy-improved-cursor-linux synth-shell packages.txt aur_packages.txt gnome.txt
 
 # download appimage(s).
 wget "https://github.com/ppy/osu/releases/latest/download/osu.AppImage"

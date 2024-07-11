@@ -1,0 +1,17 @@
+baobab
+gdm
+gnome-calculator
+gnome-calendar
+gnome-control-center
+gnome-session
+gnome-settings-daemon
+gnome-shell
+gnome-shell-extensions
+gnome-system-monitor
+gnome-weather
+grilo-plugins
+nautilus
+sushi
+tracker3-miners
+xdg-desktop-portal-gnome
+xdg-user-dirs-gtk

@@ -1,13 +1,12 @@
 brave-bin
 discord-canary
 discord-canary-update-skip-git
-indicator-sysmonitor-budgie-git
+gearlever
 libre-menu-editor
 opentabletdriver
 p7zip-gui
 parsec-bin
 prismlauncher
-vala-panel-appmenu-budgie-git
 vscodium-bin
 web-greeter
 zoom
