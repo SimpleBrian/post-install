@@ -1,5 +1,6 @@
 baobab
 gdm
+gnome-browser-connector
 gnome-calculator
 gnome-calendar
 gnome-control-center
@@ -8,6 +9,7 @@ gnome-settings-daemon
 gnome-shell
 gnome-shell-extensions
 gnome-system-monitor
+gnome-tweaks
 gnome-weather
 grilo-plugins
 nautilus
@@ -15,4 +17,3 @@ sushi
 tracker3-miners
 xdg-desktop-portal-gnome
 xdg-user-dirs-gtk
-gnome-tweaks

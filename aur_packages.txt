@@ -1,3 +1,4 @@
+gdm-settings
 gearlever
 libre-menu-editor
 opentabletdriver
