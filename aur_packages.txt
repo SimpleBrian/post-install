@@ -1,12 +1,7 @@
-brave-bin
-discord-canary
-discord-canary-update-skip-git
 gearlever
 libre-menu-editor
 opentabletdriver
 p7zip-gui
-parsec-bin
 prismlauncher
 vscodium-bin
-web-greeter
 zoom

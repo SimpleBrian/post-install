@@ -92,10 +92,6 @@ sudo sed -i 's/^hosts:.*/hosts: mymachines mdns_minimal [NOTFOUND=return] resolv
 sudo ufw allow 5353
 sudo sed -i 's/^noipv4ll/#noipv4ll/' /etc/dhcpcd.conf
 
-# run the discord patch command, then uninstall.
-discord-canary-update-skip
-paru -R --noconfirm discord-canary-update-skip-git
-
 # delete git repos and package lists after everything has been installed.
 sudo rm -r paru WelcomeXP Tela-icon-theme Qogir-theme posy-improved-cursor-linux synth-shell packages.txt aur_packages.txt gnome.txt
 

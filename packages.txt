@@ -4,6 +4,7 @@ bluez
 bluez-utils
 cups
 dhcpcd
+firefox
 flatpak
 fuse2
 fuse3
