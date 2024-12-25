@@ -92,11 +92,12 @@ sudo sed -i 's/^hosts:.*/hosts: mymachines mdns_minimal [NOTFOUND=return] resolv
 sudo ufw allow 5353
 sudo sed -i 's/^noipv4ll/#noipv4ll/' /etc/dhcpcd.conf
 
-# delete git repos and package lists after everything has been installed.
-sudo rm -r paru packages.txt gnome.txt aur_packages.txt synth-shell Tela-icon-theme Qogir-theme posy-improved-cursor-linux
-
 # download appimage(s).
-wget "https://github.com/ppy/osu/releases/latest/download/osu.AppImage"
+wget https://github.com/SimpleBrian/post-install/raw/wayland/appimages.txt
+wget -i appimages.txt
+
+# delete git repos and package lists after everything has been installed.
+sudo rm -r paru packages.txt gnome.txt aur_packages.txt appimages.txt synth-shell Tela-icon-theme Qogir-theme posy-improved-cursor-linux
 
 # aggresively clean pacman and AUR caches, and uninstalls any unused dependencies.
 paru -Scc --noconfirm
