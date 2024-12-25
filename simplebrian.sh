@@ -93,7 +93,7 @@ sudo ufw allow 5353
 sudo sed -i 's/^noipv4ll/#noipv4ll/' /etc/dhcpcd.conf
 
 # delete git repos and package lists after everything has been installed.
-sudo rm -r paru WelcomeXP Tela-icon-theme Qogir-theme posy-improved-cursor-linux synth-shell packages.txt aur_packages.txt gnome.txt
+sudo rm -r paru packages.txt gnome.txt aur_packages.txt synth-shell Tela-icon-theme Qogir-theme posy-improved-cursor-linux
 
 # download appimage(s).
 wget "https://github.com/ppy/osu/releases/latest/download/osu.AppImage"
