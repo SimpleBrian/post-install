@@ -99,8 +99,12 @@ wget https://github.com/SimpleBrian/post-install/raw/wayland/appimages.txt
 wget -i appimages.txt
 cd
 
+# download all windows fonts.
+git clone -b wayland --single-branch https://github.com/SimpleBrian/post-install
+mv -r post-install/fonts ~/
+
 # delete git repos and package lists after everything has been installed.
-sudo rm -r paru packages.txt gnome.txt aur_packages.txt ~/AppImages/appimages.txt synth-shell Tela-icon-theme Qogir-theme posy-improved-cursor-linux
+sudo rm -r post-install paru packages.txt gnome.txt aur_packages.txt ~/AppImages/appimages.txt synth-shell Tela-icon-theme Qogir-theme posy-improved-cursor-linux
 
 # aggresively clean pacman and AUR caches, and uninstalls any unused dependencies.
 paru -Scc --noconfirm
