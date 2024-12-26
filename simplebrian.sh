@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # [DISCLAIMER]
-# This script was made by an idiot and may not work as intended, just because it worked for me, doesn't mean it will work for you.
+# this script was made by an idiot and may not work as intended; just because it worked for me, doesn't mean it will work for you (but you can try).
 
 # check if user is running in root/sudo, exits if they are because pkgbuild is stupid and won't run on root/sudo.
 if [ "$EUID" = 0 ]
@@ -93,11 +93,14 @@ sudo ufw allow 5353
 sudo sed -i 's/^noipv4ll/#noipv4ll/' /etc/dhcpcd.conf
 
 # download appimage(s).
+mkdir -p ~/AppImages
+cd ~/AppImages
 wget https://github.com/SimpleBrian/post-install/raw/wayland/appimages.txt
 wget -i appimages.txt
+cd
 
 # delete git repos and package lists after everything has been installed.
-sudo rm -r paru packages.txt gnome.txt aur_packages.txt appimages.txt synth-shell Tela-icon-theme Qogir-theme posy-improved-cursor-linux
+sudo rm -r paru packages.txt gnome.txt aur_packages.txt ~/AppImages/appimages.txt synth-shell Tela-icon-theme Qogir-theme posy-improved-cursor-linux
 
 # aggresively clean pacman and AUR caches, and uninstalls any unused dependencies.
 paru -Scc --noconfirm

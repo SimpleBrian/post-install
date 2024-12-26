@@ -4,6 +4,5 @@ libre-menu-editor
 onlyoffice-bin
 opentabletdriver
 p7zip-gui
-prismlauncher
 vscodium-bin
 zoom

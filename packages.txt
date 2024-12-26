@@ -3,7 +3,6 @@ blueman
 bluez
 bluez-utils
 cups
-dhcpcd
 firefox
 flatpak
 font-manager
@@ -21,6 +20,7 @@ networkmanager
 nss-mdns
 pipewire
 powerline-fonts
+prismlauncher
 sassc
 sbctl
 solaar
